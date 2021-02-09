@@ -13,20 +13,20 @@ namespace DnbBD.Handler
     {
         public void ProcessRequest(HttpContext context)
         {
-            string prefixText = context.Request.QueryString["q"];
-            using (SqlConnection conn = new SqlConnection())
+            var prefixText = context.Request.QueryString["q"];
+            using (var conn = new SqlConnection())
             {
                 conn.ConnectionString = ConfigurationManager.ConnectionStrings["DBConnectionString"].ConnectionString;
-                using (SqlCommand cmd = new SqlCommand())
+                using (var cmd = new SqlCommand())
                 {
                     cmd.CommandText = "SELECT Registration.UserName FROM Member INNER JOIN Registration ON Member.MemberRegistrationID = Registration.RegistrationID WHERE ((Member.Left_Status = 0) OR (Member.Right_Status = 0)) AND Registration.UserName like @UserName + '%'";
                     cmd.Parameters.AddWithValue("@UserName", prefixText);
 
                     cmd.Connection = conn;
-                    StringBuilder sb = new StringBuilder();
+                    var sb = new StringBuilder();
                     conn.Open();
 
-                    using (SqlDataReader sdr = cmd.ExecuteReader())
+                    using (var sdr = cmd.ExecuteReader())
                     {
                         while (sdr.Read())
                         {
@@ -35,24 +35,11 @@ namespace DnbBD.Handler
                     }
                     conn.Close();
 
-                    if (!string.IsNullOrEmpty(sb.ToString()))
-                    {
-                        context.Response.Write(sb.ToString());
-                    }
-                    else
-                    {
-                        context.Response.Write(" ");
-                    }
+                    context.Response.Write(!string.IsNullOrEmpty(sb.ToString()) ? sb.ToString() : " ");
                 }
             }
         }
 
-        public bool IsReusable
-        {
-            get
-            {
-                return false;
-            }
-        }
+        public bool IsReusable => false;
     }
 }

@@ -4,7 +4,7 @@
     <style>
         .img { width: 90px; height: 90px; border: 1px solid #f5f5f5; }
         .userinfo ul { margin: 13px 0 0; padding: 0; }
-            .userinfo ul li { border-bottom: 1px solid #ddd; font-size: 16px; list-style: outside none none; padding: 10px 0; text-align: center; }
+        .userinfo ul li { border-bottom: 1px solid #ddd; font-size: 16px; list-style: outside none none; padding: 10px 0; text-align: center; }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
@@ -68,7 +68,7 @@
             <asp:FormView ID="M_detailsFormView" DataKeyNames="RegistrationID,Category,Is_Identified,Available_Balance,Phone" runat="server" DataSourceID="MemberDetailsSQL" Width="100%" OnDataBound="M_detailsFormView_DataBound">
                 <ItemTemplate>
                     <div class="well userinfo">
-                        <img alt="" src="/Handler/AllUserPhoto.ashx?Img=<%# Eval("RegistrationID") %>" class="img-responsive img-circle img" />
+                        <img alt="" src="/Handler/UserPhoto.ashx?id=<%# Eval("RegistrationID") %>" class="img-responsive img-circle img" />
                         <ul>
                             <li>
                                 <i class="fa fa-id-card" aria-hidden="true"></i>
@@ -133,7 +133,7 @@
         //Autocomplete
         $(function () {
             $('[id*=UserIDTextBox]').typeahead({
-                minLength:2,
+                minLength: 2,
                 source: function (request, result) {
                     $.ajax({
                         url: "Withdraw_Balance.aspx/Get_User",
@@ -152,17 +152,15 @@
 
             //Withdraw Amount TextBox
             $("[id*=WithdrawAmountTextBox]").on('keyup', function () {
-                var Available = parseFloat($("[id*=Available_BalanceLabel]").text());
-                var Send = parseFloat($("[id*=WithdrawAmountTextBox]").val());
+                const Available = parseFloat($("[id*=Available_BalanceLabel]").text());
+                const Send = parseFloat($("[id*=WithdrawAmountTextBox]").val());
 
-                if ($("[id*=WithdrawAmountTextBox]").val() != "") {
-                    Available >= Send ? ($("[id*=WithDrawButton]").prop("disabled", !1).addClass("btn btn-primary"), $("[id*=ErorLabel]").text("")) : ($("[id*=WithDrawButton]").prop("disabled", !0).removeClass("btn btn-primary"), $("[id*=ErorLabel]").text("Withdraw Amount greater than available balance"));
+                if ($("[id*=WithdrawAmountTextBox]").val() !== "") {
+                    Available >= Send ? ($("[id*=WithDrawButton]").prop("disabled", false).addClass("btn btn-primary"), $("[id*=ErorLabel]").text("")) : ($("[id*=WithDrawButton]").prop("disabled", true).removeClass("btn btn-primary"), $("[id*=ErorLabel]").text("Withdraw Amount greater than available balance"));
                 }
             });
         });
 
-
         function isNumberKey(a) { a = a.which ? a.which : event.keyCode; return 46 != a && 31 < a && (48 > a || 57 < a) ? !1 : !0 };
-
     </script>
 </asp:Content>

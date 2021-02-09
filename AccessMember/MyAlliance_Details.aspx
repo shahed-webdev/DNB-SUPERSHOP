@@ -22,7 +22,7 @@
             <ItemTemplate>
                 <div class="Info">
                     <div class="infowrap">
-                        <img src="/Handler/AllUserPhoto.ashx?Img=<%#Eval("RegistrationID") %>" class="img-thumbnail img-responsive" />
+                        <img src="/Handler/UserPhoto.ashx?id=<%#Eval("RegistrationID") %>" class="img-thumbnail img-responsive" />
                     </div>
                     <div class="infowrap">
                         <ul>

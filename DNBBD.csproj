@@ -20,6 +20,7 @@
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -782,20 +783,17 @@
     <Compile Include="Handler\AuthorityHandler.ashx.cs">
       <DependentUpon>AuthorityHandler.ashx</DependentUpon>
     </Compile>
-    <Compile Include="Handler\AllUserPhoto.ashx.cs">
-      <DependentUpon>AllUserPhoto.ashx</DependentUpon>
-    </Compile>
     <Compile Include="Handler\Change_Position_User.ashx.cs">
       <DependentUpon>Change_Position_User.ashx</DependentUpon>
     </Compile>
     <Compile Include="Handler\Document_Image.ashx.cs">
       <DependentUpon>Document_Image.ashx</DependentUpon>
     </Compile>
-    <Compile Include="Handler\Home_Products.ashx.cs">
-      <DependentUpon>Home_Products.ashx</DependentUpon>
+    <Compile Include="Handler\HomePageProductImage.ashx.cs">
+      <DependentUpon>HomePageProductImage.ashx</DependentUpon>
     </Compile>
-    <Compile Include="Handler\Home_Slider.ashx.cs">
-      <DependentUpon>Home_Slider.ashx</DependentUpon>
+    <Compile Include="Handler\HomePageSliderImage.ashx.cs">
+      <DependentUpon>HomePageSliderImage.ashx</DependentUpon>
     </Compile>
     <Compile Include="Handler\Nominee_Image.ashx.cs">
       <DependentUpon>Nominee_Image.ashx</DependentUpon>
@@ -808,6 +806,9 @@
     </Compile>
     <Compile Include="Handler\UserName.ashx.cs">
       <DependentUpon>UserName.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Handler\UserPhoto.ashx.cs">
+      <DependentUpon>UserPhoto.ashx</DependentUpon>
     </Compile>
     <Compile Include="Home\Product_Category.aspx.cs">
       <DependentUpon>Product_Category.aspx</DependentUpon>
@@ -857,7 +858,6 @@
   <ItemGroup>
     <Content Include="Basic.Master" />
     <Content Include="Handler\AuthorityHandler.ashx" />
-    <Content Include="Handler\AllUserPhoto.ashx" />
     <Content Include="Handler\UserName.ashx" />
     <Content Include="Handler\Document_Image.ashx" />
     <Content Include="Handler\Add_New_Member_User.ashx" />
@@ -870,11 +870,12 @@
     <Content Include="Bootstrap\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Bootstrap\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Bootstrap\fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="Handler\Home_Slider.ashx" />
     <Content Include="packages.config" />
-    <Content Include="Handler\Home_Products.ashx" />
     <Content Include="Handler\Notice_Image.ashx" />
     <Content Include="Handler\Nominee_Image.ashx" />
+    <Content Include="Handler\HomePageSliderImage.ashx" />
+    <Content Include="Handler\HomePageProductImage.ashx" />
+    <Content Include="Handler\UserPhoto.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -24,7 +24,7 @@
                     <div class="col-lg-3 col-sm-4 col-xs-6">
                         <div class="Card">
                             <div class="card-img">
-                                <img src='/Handler/Home_Products.ashx?Img=<%#Eval("ProductID") %>' class="img-responsive" />
+                                <img src='/Handler/HomePageProductImage.ashx?id=<%#Eval("ProductID") %>' class="img-responsive" alt="" />
                             </div>
                             <h4><%#Eval("Product_Title") %></h4>
                         </div>

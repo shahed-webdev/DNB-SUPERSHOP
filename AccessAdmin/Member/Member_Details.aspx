@@ -24,7 +24,7 @@
                         <ItemTemplate>
                             <div class="Info">
                                 <div class="infowrap">
-                                    <img src="/Handler/AllUserPhoto.ashx?Img=<%#Eval("RegistrationID") %>" class="img-thumbnail img-responsive" />
+                                    <img src="/Handler/UserPhoto.ashx?id=<%#Eval("RegistrationID") %>" class="img-thumbnail img-responsive" />
                                 </div>
                                 <div class="infowrap">
                                     <ul>
@@ -232,7 +232,7 @@
                                     <asp:Label ID="Referral_Label" runat="server" Text='<%# Bind("R_UserName") %>' />.
                                 </div>
 
-                                <img alt="" src="/Handler/AllUserPhoto.ashx?Img=<%#Eval("RegistrationID") %>" class="img-responsive img-circle Photo" />
+                                <img alt="" src="/Handler/UserPhoto.ashx?id=<%#Eval("RegistrationID") %>" class="img-responsive img-circle Photo" />
 
 
                                 <div class="form-group">

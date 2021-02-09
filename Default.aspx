@@ -12,7 +12,7 @@
             <div class="list-group">
                 <asp:Repeater ID="Repeater1" runat="server" DataSourceID="Product_CategorySQL">
                     <ItemTemplate>
-                         <a target="_blank" href="Home/Product_Category.aspx?cid=<%#Eval("Product_CategoryID") %>" class="list-group-item"><%#Eval("Product_Category") %> <i class="fa fa-angle-right link-right" aria-hidden="true"></i></a>
+                        <a target="_blank" href="Home/Product_Category.aspx?cid=<%#Eval("Product_CategoryID") %>" class="list-group-item"><%#Eval("Product_Category") %> <i class="fa fa-angle-right link-right" aria-hidden="true"></i></a>
                     </ItemTemplate>
                 </asp:Repeater>
             </div>
@@ -24,7 +24,8 @@
                     <asp:Repeater ID="Slider_Repeater" runat="server" DataSourceID="Home_SliderSQL">
                         <ItemTemplate>
                             <div class="item">
-                                <img src='/Handler/Home_Slider.ashx?Img=<%#Eval("SliderID") %>' />
+                                <img src="/Handler/HomePageSliderImage.ashx?id=<%#Eval("SliderID") %>" alt="" />
+
                                 <div class="carousel-caption">
                                     <h2><%# Eval("Description") %></h2>
                                 </div>
@@ -43,9 +44,8 @@
                 </a>
             </div>
         </div>
+        <asp:SqlDataSource ID="Home_SliderSQL" runat="server" ConnectionString="<%$ ConnectionStrings:DBConnectionString %>" SelectCommand="SELECT SliderID, Image, Description FROM Home_Slider"></asp:SqlDataSource>
     </div>
-    <asp:SqlDataSource ID="Home_SliderSQL" runat="server" ConnectionString="<%$ ConnectionStrings:DBConnectionString %>" SelectCommand="SELECT * FROM [Home_Slider]"></asp:SqlDataSource>
-
 
     <div class="container t-space">
         <asp:Repeater ID="Category_Repeater" runat="server" DataSourceID="Product_CategorySQL">
@@ -61,8 +61,9 @@
                             <div class="col-md-3 col-sm-4 col-xs-6">
                                 <div class="panel">
                                     <div class="panel-body">
-                                        <img src='/Handler/Home_Products.ashx?Img=<%#Eval("ProductID") %>' class="img-responsive pimg" />
+                                        <img src='/Handler/HomePageProductImage.ashx?id=<%#Eval("ProductID") %>' class="img-responsive pimg" alt="" />
                                     </div>
+
                                     <div class="panel-title">
                                         <%#Eval("Product_Title") %>
                                     </div>

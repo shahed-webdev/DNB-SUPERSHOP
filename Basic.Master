@@ -10,9 +10,9 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="robots" content="default, index, follow" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta http-equiv='cache-control' content='no-cache' />
-    <meta http-equiv='expires' content='0' />
-    <meta http-equiv='pragma' content='no-cache' />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <meta http-equiv="pragma" content="no-cache" />
 
     <!--Jquery-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -33,7 +33,7 @@
     <link href="/CSS/All_Page_Print.css?v=3" rel="stylesheet" media="print" />
 
     <!--fontawesome-->
-   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
 
     <!--google font-->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
@@ -64,7 +64,7 @@
                             <ItemTemplate>
                                 <div class="Admin-p-img text-center">
                                     <a href="/Profile_Redirect.aspx">
-                                        <img alt="No Image" title="Go Profile" src="/Handler/AllUserPhoto.ashx?Img=<%#Eval("RegistrationID") %>" class="img-circle img-responsive" />
+                                        <img alt="No Image" title="Go Profile" src="/Handler/UserPhoto.ashx?id=<%#Eval("RegistrationID") %>" class="img-circle img-responsive" />
                                     </a>
 
                                     <a href="/Profile_Redirect.aspx">
@@ -125,7 +125,7 @@
 
         <footer class="footer container-fluid text-center">
             <div class="CopyRight">
-              Developed by: <a href="http://loopsit.com/" target="_blank">Loops IT</a>
+                Developed by: <a href="http://loopsit.com/" target="_blank">Loops IT</a>
             </div>
         </footer>
 
