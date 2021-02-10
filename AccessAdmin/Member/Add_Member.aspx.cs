@@ -401,7 +401,7 @@ namespace DnbBD.AccessAdmin.Member
             SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["DBConnectionString"].ToString());
             string R = "";
 
-            if (PositionType == "Team A")
+            if (PositionType == "Left")
             {
                 SqlCommand LeftStatus = new SqlCommand("SELECT Left_Status FROM [Member] WHERE (MemberID = @MemberID)", con);
                 LeftStatus.Parameters.AddWithValue("@MemberID", Position_MemberID);
@@ -412,7 +412,7 @@ namespace DnbBD.AccessAdmin.Member
 
                 if (IsLeftStatusValid)
                 {
-                    R = "Team A Member Full";
+                    R = "Left Member Full";
                 }
                 else
                 {
@@ -420,7 +420,7 @@ namespace DnbBD.AccessAdmin.Member
                 }
             }
 
-            if (PositionType == "Team B")
+            if (PositionType == "Right")
             {
                 SqlCommand RightStatus = new SqlCommand("SELECT Right_Status FROM [Member] WHERE (MemberID = @MemberID)", con);
                 RightStatus.Parameters.AddWithValue("@MemberID", Position_MemberID);
@@ -431,7 +431,7 @@ namespace DnbBD.AccessAdmin.Member
 
                 if (IsRightStatusValid)
                 {
-                    R = "Team B Member Full";
+                    R = "Right Member Full";
                 }
                 else
                 {

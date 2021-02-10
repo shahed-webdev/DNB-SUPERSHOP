@@ -15,7 +15,7 @@ namespace DnbBD
             {
                 try
                 {
-                    InvalidErrorLabel.Text = Request.QueryString["Invalid"].ToString();
+                    InvalidErrorLabel.Text = Request.QueryString["Invalid"];
                 }
                 catch { }
             }
